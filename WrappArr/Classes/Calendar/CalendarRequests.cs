@@ -19,7 +19,19 @@ namespace WrappArr_Console
             req.AddQueryParameter("includeSeries", "false");
             req.AddQueryParameter("includeEpisodeFile", "false");
             req.AddQueryParameter("includeEpisodeImages", "false");
-            req.AddQueryParameter("apikey", "b2e3bf9ce0384ccf890e9f08c85b5c00");
+
+            var response = await _client.ExecuteAsync(req);
+            return response.ResponseStatus;
+        }
+
+                public async Task<ResponseStatus> GetCalendar(int id)
+        {
+            var req = new RestRequest($"/api/v3/calendar{id}", Method.Get);
+            req.AddHeader("accept", "application/json");
+            req.AddQueryParameter("unmonitored", "false");
+            req.AddQueryParameter("includeSeries", "false");
+            req.AddQueryParameter("includeEpisodeFile", "false");
+            req.AddQueryParameter("includeEpisodeImages", "false");
 
             var response = await _client.ExecuteAsync(req);
             return response.ResponseStatus;
