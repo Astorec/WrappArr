@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/QFMl/lxE/oLNC4zxkncnr+PCyP0Z/33NYiOhDJ6hROHgE1TaJkJMfKnZnTZoYmAfiRKJmN3ujQyLRoSTUruDA==",
+  "success": true,
+  "projectFilePath": "/home/astorec/Documents/Repos/WrappArr/WrappArr/WrappArr.csproj",
+  "expectedPackageFiles": [
+    "/home/astorec/.nuget/packages/restsharp/111.1.0/restsharp.111.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
