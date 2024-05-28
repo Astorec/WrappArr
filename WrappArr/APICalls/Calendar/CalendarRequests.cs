@@ -1,7 +1,7 @@
 using RestSharp;
-using WrappArr.Classes.Auth;
+using WrappArr.ApiCalls.Auth;
 
-namespace WrappArr_Console
+namespace WrappArr.ApiCalls.Calendar
 {
     public class CalendarRequests
     {
@@ -24,7 +24,7 @@ namespace WrappArr_Console
             return response.ResponseStatus;
         }
 
-                public async Task<ResponseStatus> GetCalendar(int id)
+        public async Task<ResponseStatus> GetCalendar(int id)
         {
             var req = new RestRequest($"/api/v3/calendar{id}", Method.Get);
             req.AddHeader("accept", "application/json");

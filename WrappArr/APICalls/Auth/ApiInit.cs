@@ -1,6 +1,6 @@
 using RestSharp;
 
-namespace WrappArr.Classes.Auth
+namespace WrappArr.ApiCalls.Auth
 {
     public class ApiInit
     {
