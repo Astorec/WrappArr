@@ -1,3 +1,5 @@
+using WrappArr.Classes.General;
+
 namespace WrappArr.Classes.Series
 {
     public class Season

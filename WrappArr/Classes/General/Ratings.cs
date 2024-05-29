@@ -1,8 +1,8 @@
-namespace WrappArr.Classes.Series
+namespace WrappArr.Classes.General
 {
     public class Ratings
     {
         public int Votes { get; set; }
-        public int Value { get; set; }
+        public float Value { get; set; }
     }
 }

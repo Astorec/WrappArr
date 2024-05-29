@@ -1,4 +1,4 @@
-namespace WrappArr.Classes.Series
+namespace WrappArr.Classes.General
 {
     public class Statistics
     {
