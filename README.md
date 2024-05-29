@@ -4,8 +4,6 @@ Currently focusing on Sonarr and Radarr but will add others in the future.
 
 # Setting Up the Client Connection
 
-This guide will walk you through the process of setting up a client connection using the `ApiInit` class in our application.
-
 ## Prerequisites
 
 Before you begin, ensure you have the following information:
