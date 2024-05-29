@@ -30,7 +30,7 @@ namespace WrappArr.ApiCalls.Calendar
         bool includeSeries = false, bool includeEpisodeFile = false, bool includeEpisodeImages = false)
         {
 
-            var req = new RestRequest("/api/v3/calendar", Method.Get);
+            var req = new RestRequest("api/v3/calendar", Method.Get);
             req.AddHeader("accept", "application/json");
             req.AddQueryParameter("unmonitored", unmonitored);
             req.AddQueryParameter("includeSeries", includeSeries);
