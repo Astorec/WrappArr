@@ -1,5 +1,4 @@
 WrappArr_Console/
-WrappArr.sln
 *.swp
 *.*~
 project.lock.json
@@ -18,6 +17,7 @@ nupkg/
 *.user
 *.userosscache
 *.sln.docstates
+*.sln
 
 # Build results
 [Dd]ebug/
