@@ -1,9 +1,17 @@
 using RestSharp;
 
-namespace WrappArr.Methods{
-    public static class CreateClientRequest
+namespace WrappArr.Methods
+{
+    internal static class CreateClientRequest
     {
-        public static RestRequest CreatRequest(string resource, Method method, Dictionary<string, object> queryParams = null)
+        /// <summary>
+        /// Create a request with the given parameters
+        /// </summary>
+        /// <param name="resource">The resource to request</param>
+        /// <param name="method">The method to use</param>
+        /// <param name="queryParams">The query parameters to use</param>
+        public static RestRequest CreatRequest(string resource, Method method,
+        Dictionary<string, object> queryParams = null)
         {
             var req = new RestRequest(resource, method);
             req.AddHeader("accept", "application/json");

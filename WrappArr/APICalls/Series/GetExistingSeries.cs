@@ -11,6 +11,12 @@ namespace WrappArr.APICalls.Series
         {
             _client = client;
         }
+
+        /// <summary>
+        /// Get a series by ID
+        /// </summary>
+        /// <param name="id">The ID of the series to get</param>
+        /// <param name="includeSeasonImages">Whether to include season images in the response</param>
         public async Task<Classes.Series.Series> GetSeries(int id, bool includeSeasonImages = false)
         {
             var req = CreateClientRequest.CreatRequest("api/v3/series/{id}", Method.Get, new Dictionary<string, object>

@@ -18,6 +18,17 @@ namespace WrappArr.ApiCalls.Calendar
         {
             _client = client;
         }
+
+        /// <summary>
+        /// Get the calendar for the server
+        /// </summary>
+        /// <param name="startDate">The start date of the calendar</param>
+        /// <param name="endDate">The end date of the calendar</param>
+        /// <param name="tags">Tags to filter the calendar by</param>
+        /// <param name="unmonitored">Whether to include unmonitored items in the calendar</param>
+        /// <param name="includeSeries">Whether to include series in the calendar</param>
+        /// <param name="includeEpisodeFile">Whether to include episode files in the calendar</param>
+        /// <param name="includeEpisodeImages">Whether to include episode images in the calendar</param>
         public async Task<List<Classes.Calendar.Calendar>> GetCalendar(DateTime? startDate = null, DateTime? endDate = null, string tags = null, bool unmonitored = false,
         bool includeSeries = false, bool includeEpisodeFile = false, bool includeEpisodeImages = false)
         {
