@@ -1,45 +1,30 @@
 using Newtonsoft.Json;
 using RestSharp;
+using WrappArr.Methods;
 namespace WrappArr.APICalls.Series
 {
     public class LookupSeries
     {
         private readonly RestClient _client;
+        
         public LookupSeries(RestClient client)
         {
             _client = client;
         }
-
-        public async Task<List<string>> SearchForSeries(string term)
+        
+        /// <summary>
+        /// Search for a series by name
+        /// </summary>
+        /// <param name="term">The name of the series to search for</param>
+        /// <param name="apiKey">The API Key for the server. This is required here as it is needed in the URL as well</param>
+        public async Task<List<Classes.SeriesLookup.Series>> SearchForSeries(string term, string apiKey)
         {
-            var req = new RestRequest("api/v3/series/lookup", Method.Get);
-            req.AddHeader("accept", "application/json");
-            req.AddQueryParameter("term", term);
-            req.AddQueryParameter("includeSeasonImages", "false");
-            var response = await _client.ExecuteAsync(req);
-            Console.WriteLine(response.StatusCode.ToString());
-
-            try
+            var req = CreateClientRequest.CreatRequest("api/v3/series/lookup", Method.Get, new Dictionary<string, object>
             {
-                var content = JsonConvert.DeserializeObject<List<Classes.SeriesLookup.Series>>(response.Content);
-                var seriesList = new List<string>();
-
-                foreach (var series in content)
-                {
-                    var seriesInfo = $"{series.Title} ({series.Year}) {series.Status} - TVDB ID: {series.TvdbId}";
-                    seriesList.Add(seriesInfo);
-                }
-
-
-                return seriesList;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return new List<string>();
-            }
+                {"term", term},
+                {"apikey", apiKey}
+            });
+            return await ExecuteClientRequest.Obj<List<Classes.SeriesLookup.Series>>(req, _client);
         }
-
-
     }
 }

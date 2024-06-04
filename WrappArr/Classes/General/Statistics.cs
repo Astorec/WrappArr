@@ -8,6 +8,6 @@ namespace WrappArr.Classes.General
         public int TotalEpisodeCount { get; set; }
         public long SizeOnDisk { get; set; }
         public List<string> ReleaseGroups { get; set; }
-        public int PercentOfEpisodes { get; set; }
+        public double PercentOfEpisodes { get; set; }
     }
 }
