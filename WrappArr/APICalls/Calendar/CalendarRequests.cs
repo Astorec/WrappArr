@@ -40,7 +40,6 @@ namespace WrappArr.ApiCalls.Calendar
             { "includeEpisodeImages", includeEpisodeImages }
         });
 
-            req.AddHeader("accept", "application/json");
             if (!string.IsNullOrEmpty(tags))
             {
                 req.AddQueryParameter("tags", tags);
@@ -54,6 +53,19 @@ namespace WrappArr.ApiCalls.Calendar
                     req.AddQueryParameter("end", endDate.Value.ToString("yyyy-MM-dd"));
                 }
             }
+
+            Console.WriteLine("Client headers:");
+            foreach (var header in _client.DefaultParameters)
+            {
+                Console.WriteLine($"Name: {header.Name}, Value: {header.Value}");
+            }
+
+            Console.WriteLine("Request headers:");
+            foreach (var header in req.Parameters.Where(p => p.Type == ParameterType.HttpHeader))
+            {
+                Console.WriteLine($"Name: {header.Name}, Value: {header.Value}");
+            }
+
             return await ExecuteClientRequest.Obj<List<Classes.Calendar.Calendar>>(req, _client);
         }
     }

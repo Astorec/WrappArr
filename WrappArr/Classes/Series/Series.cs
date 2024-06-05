@@ -47,5 +47,6 @@ namespace WrappArr.Classes.Series
         public Ratings Ratings { get; set; }
         public Statistics Statistics { get; set; }
         public bool EpisodesChanged { get; set; }
+        public int LanguageProfileId { get; set; }
     }
 }

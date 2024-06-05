@@ -17,14 +17,14 @@ namespace WrappArr.APICalls.Series
         /// </summary>
         /// <param name="term">The name of the series to search for</param>
         /// <param name="apiKey">The API Key for the server. This is required here as it is needed in the URL as well</param>
-        public async Task<List<Classes.SeriesLookup.Series>> SearchForSeries(string term, string apiKey)
+        public async Task<List<Classes.Series.Series>> SearchForSeries(string term, string apiKey)
         {
             var req = CreateClientRequest.CreatRequest("api/v3/series/lookup", Method.Get, new Dictionary<string, object>
             {
                 {"term", term},
                 {"apikey", apiKey}
             });
-            return await ExecuteClientRequest.Obj<List<Classes.SeriesLookup.Series>>(req, _client);
+            return await ExecuteClientRequest.Obj<List<Classes.Series.Series>>(req, _client);
         }
     }
 }
