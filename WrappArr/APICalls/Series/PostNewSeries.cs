@@ -5,15 +5,15 @@ using WrappArr.Methods;
 
 namespace WrappArr.APICalls.Series
 {
-    public class AddNewSeries
+    public class PostNewSeries
     {
         private readonly RestClient _client;
-        public AddNewSeries(RestClient client)
+        public PostNewSeries(RestClient client)
         {
             _client = client;
         }
 
-        public async Task<RestResponse> AddSeries(Classes.Series.Series series, string apiKey, bool moveFiles = false)
+        public async Task<RestResponse> PostSeries(Classes.Series.Series series, string apiKey, bool moveFiles = false)
         {
             var req = CreateClientRequest.CreatRequest("api/v3/series", Method.Post, new Dictionary<string, object>
             {

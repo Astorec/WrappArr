@@ -28,17 +28,22 @@ namespace WrappArr.APICalls.Series
             return await ExecuteClientRequest.Obj<Classes.Series.Series>(req, _client);
         }
 
-        public async Task<Classes.Series.Series> GetSeriesByTVDBID(int tvdbIdid, bool includeSeasonImages = false)
+        /// <summary>
+        /// Get a series by TVDB ID
+        /// </summary>
+        /// <param name="tvdbId">The TVDB ID of the series to get</param>
+        /// <param name="includeSeasonImages">Whether to include season images in the response</param>
+        public async Task<List<Classes.Series.Series>> GetSeriesByTVDBID(int tvdbId, bool includeSeasonImages = false)
         {
             var req = CreateClientRequest.CreatRequest("api/v3/series", Method.Get, new Dictionary<string, object>
             {
-                    {"tvdbId", tvdbIdid},
+                    {"tvdbId", tvdbId},
                     {"includeSeasonImages", includeSeasonImages}
             });
 
             req.AddHeader("accept", "application/json");
 
-            return await ExecuteClientRequest.Obj<Classes.Series.Series>(req, _client);
+            return await ExecuteClientRequest.Obj<List<Classes.Series.Series>>(req, _client);
         }
 
 
